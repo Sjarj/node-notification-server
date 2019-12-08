@@ -7,7 +7,8 @@ const expresServer = express();
 
 expresServer.use(cors());
 
-expresServer.listen(process.env.port || 3000, () => {
+expresServer.listen(process.env.PORT || 3000, () => {
+  console.log('Le serveur écoute sur le port:', process.env.PORT || 3000);
   expresServer.get('/', function(req, res) {
     const token = req.query.token;
     if (!Expo.isExpoPushToken(token)) {
